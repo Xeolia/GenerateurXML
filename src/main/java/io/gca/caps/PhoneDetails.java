@@ -1,13 +1,14 @@
 package io.gca.caps;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
 public class PhoneDetails {
+    @JacksonXmlProperty(isAttribute = false)
     private String modele;
     private String ecran;
     private String stockage;
-    public PhoneDetails(String modele, String ecran, String stockage) {
-        this.modele = modele;
-        this.ecran= ecran;
-        this.stockage = stockage;
+    public @interface JacksonXmlProperty{
+        boolean isAttribute() default false;
     }
 
     public String getModele() {
